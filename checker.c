@@ -1,21 +1,48 @@
-#include <stdio.h>
-#include <assert.h>
+#include "checker.h"
 
-int batteryIsOk(float temperature, float soc, float chargeRate) {
-  if(temperature < 0 || temperature > 45) {
-    printf("Temperature out of range!\n");
-    return 0;
-  } else if(soc < 20 || soc > 80) {
-    printf("State of Charge out of range!\n");
-    return 0;
-  } else if(chargeRate > 0.8) {
-    printf("Charge Rate out of range!\n");
-    return 0;
-  }
-  return 1;
+float readtemperature(float temperature)
+{
+    if((temperature < TEMP_MIN) || (temperature > TEMP_MAX))
+    {
+        printf("Temperature out of range!\n");
+        return TRUE;
+    }
+    else
+        return FALSE;
+}
+
+float readsoc(float soc)
+{
+    if(soc < SOC_MIN || soc > SOC_MAX)
+    {
+        printf("State of Charge out of range!\n");
+        return TRUE;
+    }
+    else
+        return FALSE;
+}
+
+float readchargeRate(float chargeRate)
+{
+    if(chargeRate > CHARGE_RATE_MAX)
+    {
+        printf("Charge Rate out of range!\n");
+        return TRUE;
+    }
+    else
+        return FALSE;
+}
+
+float batteryIsOk(float temperature, float soc, float chargeRate) {
+  readtemperature(temperature);
+  readsoc(soc);
+  readchargeRate(chargeRate);
+  return FALSE;
 }
 
 int main() {
-  assert(batteryIsOk(25, 70, 0.7));
-  assert(!batteryIsOk(50, 85, 0));
+   assert(batteryIsOk(BOUNDARY_VAL_TEMP1, BOUNDARY_VAL_SOC1, BOUNDARY_VAL_CHARGE_RATE1));
+   assert(!batteryIsOk(BOUNDARY_VAL_TEMP2, BOUNDARY_VAL_SOC2, BOUNDARY_VAL_CHARGE_RATE2));
+   assert(!batteryIsOk(BOUNDARY_VAL_TEMP3, BOUNDARY_VAL_SOC3, BOUNDARY_VAL_CHARGE_RATE3));
+   return TRUE;
 }
