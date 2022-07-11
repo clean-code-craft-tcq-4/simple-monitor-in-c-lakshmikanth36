@@ -48,7 +48,7 @@ int main() {
   //  value=batteryIsOk(46,81,0.9);
     value=batteryIsOk(44,79,0.7);
     printf("value=%d",value);
-    assert(value==1);
+    assert(value);
    //assert(batteryIsOk(BOUNDARY_VAL_TEMP2, BOUNDARY_VAL_SOC2, BOUNDARY_VAL_CHARGE_RATE2)==0);
    //assert(batteryIsOk(BOUNDARY_VAL_TEMP3, BOUNDARY_VAL_SOC3, BOUNDARY_VAL_CHARGE_RATE3)==0);
    return TRUE;
