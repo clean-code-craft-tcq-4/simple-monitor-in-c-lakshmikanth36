@@ -1,5 +1,5 @@
 #include "checker.h"
-
+int retval=0;
 float readtemperature(float temperature)
 {
     if((temperature < TEMP_MIN) || (temperature > TEMP_MAX))
@@ -34,7 +34,6 @@ float readchargeRate(float chargeRate)
 }
 
 int batteryIsOk(float temperature, float soc, float chargeRate) {
-    int retval=0;
     retval=readtemperature(temperature);
     retval=readsoc(soc);
     retval=readchargeRate(chargeRate);
