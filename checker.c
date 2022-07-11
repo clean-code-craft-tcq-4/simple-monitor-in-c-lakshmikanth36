@@ -34,14 +34,11 @@ float readchargeRate(float chargeRate)
 }
 
 int batteryIsOk(float temperature, float soc, float chargeRate) {
-    int return_val=0;
-    return_val=readtemperature(temperature);
-    printf("return value of Temp:%d",return_val);
-    return_val=readsoc(soc);
-    printf("return value of soc:%d",return_val);
-    return_val=readchargeRate(chargeRate);
-    printf("return value of chargerate:%d",return_val);
-    if(return_val!=0)
+    int retval1=0,retval2=0,retval3=0;
+    retval1=readtemperature(temperature);
+    retval2=readsoc(soc);
+    retval3=readchargeRate(chargeRate);
+    if(retval1!=0 && retval2!=0 && retval3!=0)
         return TRUE;
     else
         return FALSE;
