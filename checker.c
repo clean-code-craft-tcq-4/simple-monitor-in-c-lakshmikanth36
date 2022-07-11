@@ -38,7 +38,7 @@ int batteryIsOk(float temperature, float soc, float chargeRate) {
     retval=readtemperature(temperature);
     retval=readsoc(soc);
     retval=readchargeRate(chargeRate);
-    if(retval!=0)
+    if(retval)
         return TRUE;
     else
         return FALSE;
