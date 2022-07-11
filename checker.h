@@ -16,7 +16,7 @@
 #define BOUNDARY_VAL_CHARGE_RATE3 -0.1
 #define TRUE 0
 #define FALSE 1
-float batteryIsOk(float temperature, float soc, float chargeRate);
+int batteryIsOk(float temperature, float soc, float chargeRate);
 float readchargeRate(float chargeRate);
 float readsoc(float soc);
 float readtemperature(float temperature);
