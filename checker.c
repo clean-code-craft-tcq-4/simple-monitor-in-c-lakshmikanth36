@@ -45,7 +45,7 @@ int batteryIsOk(float temperature, float soc, float chargeRate) {
 }
 
 int main() {
-   assert(!batteryIsOk(BOUNDARY_VAL_TEMP2, BOUNDARY_VAL_SOC2, BOUNDARY_VAL_CHARGE_RATE2));
-   //assert(batteryIsOk(BOUNDARY_VAL_TEMP3, BOUNDARY_VAL_SOC3, BOUNDARY_VAL_CHARGE_RATE3)==1);
+   //assert(batteryIsOk(BOUNDARY_VAL_TEMP2, BOUNDARY_VAL_SOC2, BOUNDARY_VAL_CHARGE_RATE2));
+   assert(batteryIsOk(44,79,0.7)==0);
    return TRUE;
 }
