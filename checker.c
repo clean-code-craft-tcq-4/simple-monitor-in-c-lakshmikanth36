@@ -33,15 +33,15 @@ float readchargeRate(float chargeRate)
         return FALSE;
 }
 
-float batteryIsOk(float temperature, float soc, float chargeRate) {
+int batteryIsOk(float temperature, float soc, float chargeRate) {
   readtemperature(temperature);
   readsoc(soc);
   readchargeRate(chargeRate);
-  return FALSE;
+  return TRUE;
 }
 
 int main() {
-   assert(batteryIsOk(BOUNDARY_VAL_TEMP1, BOUNDARY_VAL_SOC1, BOUNDARY_VAL_CHARGE_RATE1));
+   assert(batteryIsOk(BOUNDARY_VAL_TEMP1, BOUNDARY_VAL_SOC1, BOUNDARY_VAL_CHARGE_RATE1)==TRUE);
    assert(batteryIsOk(BOUNDARY_VAL_TEMP2, BOUNDARY_VAL_SOC2, BOUNDARY_VAL_CHARGE_RATE2)==FALSE);
    assert(batteryIsOk(BOUNDARY_VAL_TEMP3, BOUNDARY_VAL_SOC3, BOUNDARY_VAL_CHARGE_RATE3)==FALSE);
    return TRUE;
