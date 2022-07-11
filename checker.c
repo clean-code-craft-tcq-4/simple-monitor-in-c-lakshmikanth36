@@ -34,18 +34,18 @@ float readchargeRate(float chargeRate)
 }
 
 int batteryIsOk(float temperature, float soc, float chargeRate) {
-    int retval1=0,retval2=0,retval3=0;
-    retval1=readtemperature(temperature);
-    retval2=readsoc(soc);
-    retval3=readchargeRate(chargeRate);
-    if(retval1!=0 || retval2!=0 || retval3!=0)
+    int retval=0;
+    retval=readtemperature(temperature);
+    retval=readsoc(soc);
+    retval=readchargeRate(chargeRate);
+    if(retval!=0)
         return TRUE;
     else
         return FALSE;
 }
 
 int main() {
-   assert(batteryIsOk(BOUNDARY_VAL_TEMP1, BOUNDARY_VAL_SOC1, BOUNDARY_VAL_CHARGE_RATE1));
+   assert(batteryIsOk(BOUNDARY_VAL_TEMP1, BOUNDARY_VAL_SOC1, BOUNDARY_VAL_CHARGE_RATE1)==1);
    //assert(batteryIsOk(BOUNDARY_VAL_TEMP2, BOUNDARY_VAL_SOC2, BOUNDARY_VAL_CHARGE_RATE2)==0);
    //assert(batteryIsOk(BOUNDARY_VAL_TEMP3, BOUNDARY_VAL_SOC3, BOUNDARY_VAL_CHARGE_RATE3)==0);
    return TRUE;
