@@ -20,3 +20,4 @@ int batteryIsOk(float temperature, float soc, float chargeRate);
 float readchargeRate(float chargeRate);
 float readsoc(float soc);
 float readtemperature(float temperature);
+float readtemperature_soc(float temperature,float soc);
