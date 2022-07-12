@@ -1,27 +1,5 @@
 #include "checker.h"
 
-float readtemperature(float temperature)
-{
-    if((temperature < TEMP_MIN) || (temperature > TEMP_MAX))
-    {
-        printf("Temperature out of range!\n");
-        return TRUE;
-    }
-    else
-        return FALSE;
-}
-
-float readsoc(float soc)
-{
-    if(soc < SOC_MIN || soc > SOC_MAX)
-    {
-        printf("State of Charge out of range!\n");
-        return TRUE;
-    }
-    else
-        return FALSE;
-}
-
 float readchargeRate(float chargeRate)
 {
     if(chargeRate > CHARGE_RATE_MAX)
@@ -50,9 +28,7 @@ float readtemperature_soc(float temperature,float soc)
 }
 int batteryIsOk(float temperature, float soc, float chargeRate) {
     int retval=0;
-    //retval=readtemperature(temperature);
     retval=readtemperature_soc(temperature,soc);
-    retval=readsoc(soc);
     retval=readchargeRate(chargeRate);
     if(retval!=0)
         return TRUE;
