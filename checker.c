@@ -33,9 +33,25 @@ float readchargeRate(float chargeRate)
         return FALSE;
 }
 
+float readtemperature_soc(float temperature,float soc)
+{
+    if((temperature < TEMP_MIN) || (temperature > TEMP_MAX))
+    {
+        printf("Temperature out of range!\n");
+        return TRUE;
+    }
+    else if(soc < SOC_MIN || soc > SOC_MAX)
+    {
+        printf("State of Charge out of range!\n");
+        return TRUE;
+    }
+    else
+        return FALSE;
+}
 int batteryIsOk(float temperature, float soc, float chargeRate) {
     int retval=0;
-    retval=readtemperature(temperature);
+    //retval=readtemperature(temperature);
+    retval=readtemperature_soc(temperature,soc);
     retval=readsoc(soc);
     retval=readchargeRate(chargeRate);
     if(retval!=0)
