@@ -18,4 +18,5 @@
 #define FALSE 1
 int batteryIsOk(float temperature, float soc, float chargeRate);
 float readchargeRate(float chargeRate);
-float readtemperature_soc(float temperature,float soc);
+float readtemperature(float temperature);
+float readsoc(float soc);
