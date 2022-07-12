@@ -18,7 +18,7 @@ float readtemperature_soc(float temperature,float soc)
         printf("Temperature out of range!\n");
         return TRUE;
     }
-    else if(soc < SOC_MIN || soc > SOC_MAX)
+    if(soc < SOC_MIN || soc > SOC_MAX)
     {
         printf("State of Charge out of range!\n");
         return TRUE;
