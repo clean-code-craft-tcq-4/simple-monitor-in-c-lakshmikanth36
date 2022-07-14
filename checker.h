@@ -6,5 +6,5 @@
 #define TEMP_MAX 45
 #define CHARGE_RATE_MAX 0.8
 int batteryIsOk(float temperature, float soc, float chargeRate);
-float readchargeRate(float chargeRate);
-float readtemperatureorsoc(float temperatureorsoc,int min_val,int max_val);
+void readchargeRate(float chargeRate);
+void readtemperatureorsoc(float temperatureorsoc,int min_val,int max_val);
