@@ -12,8 +12,15 @@ void readtemperatureorsoc(float temperatureorsoc,int min_val,int max_val)
         printf("Temperature/State of Charge out of range!\n");
  }
 
+float ConvertToCelcius(float farenheit)
+{
+    return (farenheit - 32) * 5 / 9;
+}
+
 int batteryIsOk(float temperature, float soc,float chargeRate) {
-    readtemperatureorsoc(temperature,TEMP_MIN,TEMP_MAX);
+    int conversion_temperature  = 0;
+    conversion_temperature = ConvertToCelcius(temperature);
+    readtemperatureorsoc(conversion_temperature,TEMP_MIN,TEMP_MAX);
     readtemperatureorsoc(soc,SOC_MIN,SOC_MAX);
     warningalert_SOC(soc);
     readchargeRate(chargeRate);
