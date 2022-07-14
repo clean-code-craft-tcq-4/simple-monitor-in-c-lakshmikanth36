@@ -39,6 +39,6 @@ int main() {
      assert(!batteryIsOk(400,81,0.9));
      assert(!batteryIsOk(500,81,0.9));
      assert(!batteryIsOk(1,19,0.7));
-     assert(batteryIsOk(25,21,0.7));
+     assert(batteryIsOk(25,21,0.7)==0);
  return 0;
 }
