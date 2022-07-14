@@ -18,12 +18,21 @@ float ConvertToCelcius(float farenheit)
 }
 
 int batteryIsOk(float temperature, float soc,float chargeRate) {
+#ifdef ENG_LANGUAGE
     int conversion_temperature  = 0;
     conversion_temperature = ConvertToCelcius(temperature);
     readtemperatureorsoc(conversion_temperature,TEMP_MIN,TEMP_MAX);
     readtemperatureorsoc(soc,SOC_MIN,SOC_MAX);
     warningalert_SOC(soc);
     readchargeRate(chargeRate);
+ #elifdef GERM_LANGUAGE
+    int conversion_temperature  = 0;
+    conversion_temperature = ConvertToCelcius(temperature);
+    readtemperatureorsoc(conversion_temperature,TEMP_MIN,TEMP_MAX);
+    readtemperatureorsoc(soc,SOC_MIN,SOC_MAX);
+    warningalert_SOC(soc);
+    readchargeRate(chargeRate);
+#endif    
 return 0;
 }
 
