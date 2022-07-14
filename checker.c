@@ -23,6 +23,7 @@ int main() {
      assert(batteryIsOk(5,25,0.1)==0);
      assert(batteryIsOk(25,50,0.4)==0);
      assert(batteryIsOk(40,75,0.7)==0);
+     assert(!batteryIsOk(45,80,0.8));
      
  return 0;
 }
