@@ -15,9 +15,19 @@ void readtemperatureorsoc(float temperatureorsoc,int min_val,int max_val)
 int batteryIsOk(float temperature, float soc,float chargeRate) {
     readtemperatureorsoc(temperature,TEMP_MIN,TEMP_MAX);
     readtemperatureorsoc(soc,SOC_MIN,SOC_MAX);
+    warningalert_SOC(soc);
     readchargeRate(chargeRate);
 return 0;
 }
+
+void warningalert_SOC(int temperatureorsoc)
+{
+    if(temperatureorsoc <=SOC_MIN+4)
+        printf("Warning: Approaching discharge \n");
+    else if(temperatureorsoc >= SOC_MAX-4)
+        printf("Warning: Approaching charge-peak \n");
+}
+
 int main() {
      assert(batteryIsOk(0,20,0.0)==0);
      assert(batteryIsOk(5,25,0.1)==0);
@@ -29,6 +39,6 @@ int main() {
      assert(!batteryIsOk(400,81,0.9));
      assert(!batteryIsOk(500,81,0.9));
      assert(!batteryIsOk(1,19,0.7));
-     
+     assert(batteryIsOk(25,21,0.7));
  return 0;
 }
