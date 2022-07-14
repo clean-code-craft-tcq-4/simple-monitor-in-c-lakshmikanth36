@@ -1,12 +1,12 @@
 #include "checker.h"
 
-float readchargeRate(float chargeRate)
+void readchargeRate(float chargeRate)
 {
     if(chargeRate > CHARGE_RATE_MAX)
         printf("Charge Rate out of range!\n");
 }
 
-float readtemperatureorsoc(float temperatureorsoc,int min_val,int max_val)
+void readtemperatureorsoc(float temperatureorsoc,int min_val,int max_val)
 {
     if((temperatureorsoc < min_val) || (temperatureorsoc > max_val))
         printf("Temperature/State of Charge out of range!\n");
