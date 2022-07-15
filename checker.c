@@ -7,7 +7,6 @@ int batteryIsOk(float temperature, float soc,float chargeRate) {
     readtemperatureorsoc(soc,SOC_MIN,SOC_MAX);
     warningalert_SOC(soc);
     readtemperatureorsoc(chargeRate,CHARGE_RATE_MIN,CHARGE_RATE_MAX);
-    //readchargeRate(chargeRate);
 return 0;
 }
 
