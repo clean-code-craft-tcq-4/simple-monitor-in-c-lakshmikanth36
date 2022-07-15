@@ -7,7 +7,6 @@
 #define CHARGE_RATE_MAX 0.8
 #define ENG_LANGUAGE English
 #define GERM_LANGUAGE Englisch
-extern "C" int conversion_temperature  = 0;
 int batteryIsOk(float temperature, float soc, float chargeRate);
 void readchargeRate(float chargeRate);
 void readtemperatureorsoc(float temperatureorsoc,int min_val,int max_val);
