@@ -6,9 +6,9 @@ void readchargeRate(float chargeRate)
     {
     #ifdef ENG_LANGUAGE    
         printf("Charge Rate out of range!\n");
-    #endif
-    #ifdef GERM_LANGUAGE 
+    #else
          printf("Laderate außerhalb des zulässigen Bereichs!\n");
+    #endif    
     }
 }
 
@@ -18,9 +18,9 @@ void readtemperatureorsoc(float temperatureorsoc,int min_val,int max_val)
     {
     #ifdef ENG_LANGUAGE     
         printf("Temperature/State of Charge out of range!\n");
-    #endif
-    #ifdef GERM_LANGUAGE
+    #else
         printf("Temperatur/Ladezustand außerhalb des Bereichs!\n");
+    #endif    
     }
  }
 
@@ -43,8 +43,7 @@ void warningalert_SOC(int temperatureorsoc)
     if(temperatureorsoc <=SOC_MIN+4) {
      #ifdef ENG_LANGUAGE     
         printf("Approaching discharge \n");
-     #endif 
-     #ifdef GERM_LANGUAGE   
+     #else   
         printf("Entladung nähert sich \n");
      #endif   
     }
@@ -52,8 +51,7 @@ void warningalert_SOC(int temperatureorsoc)
     {
     #ifdef ENG_LANGUAGE    
         printf("Approaching charge-peak \n");
-    #endif
-     #ifdef GERM_LANGUAGE  
+    #else  
          printf("Annäherung an die Ladungsspitze \n");
      #endif   
     }
