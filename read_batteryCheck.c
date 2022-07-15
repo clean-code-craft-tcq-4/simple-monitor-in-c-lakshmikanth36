@@ -1,15 +1,9 @@
 #include "checker.h"
 
-void readchargeRate(float chargeRate)
-{
-    if(chargeRate > CHARGE_RATE_MAX) 
-        printf("Charge Rate out of range!\n"); 
-}
-
 void readtemperatureorsoc(float temperatureorsoc,int min_val,int max_val)
 {
     if((temperatureorsoc < min_val) || (temperatureorsoc > max_val)) 
-            printf("Temperature/State of Charge out of range!\n");
+            printf("Temperature/State of Charge/Charge Rate out of range!\n");
  }
 
 float ConvertToCelcius(float farenheit)
