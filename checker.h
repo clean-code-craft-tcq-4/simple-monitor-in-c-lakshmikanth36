@@ -13,3 +13,4 @@ void readchargeRate(float chargeRate);
 void readtemperatureorsoc(float temperatureorsoc,int min_val,int max_val);
 void warningalert_SOC(int temperatureorsoc);
 float ConvertToCelcius(float farenheit);
+void unittest_batterycheck();
