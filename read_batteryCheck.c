@@ -2,8 +2,15 @@
 
 void readchargeRate(float chargeRate)
 {
-    if(chargeRate > CHARGE_RATE_MAX)  
-        printf("Charge Rate out of range!\n");
+    if(chargeRate > CHARGE_RATE_MAX) 
+    {   
+    #ifdef  ENG_LANGUAGE 
+        printf("Charge Rate out of range!\n"); 
+    #endif
+    #ifdef  GERM_LANGUAGE 
+        printf("Laderate außerhalb des Bereichs!\n"); 
+    #endif
+    }
 }
 
 void readtemperatureorsoc(float temperatureorsoc,int min_val,int max_val)
