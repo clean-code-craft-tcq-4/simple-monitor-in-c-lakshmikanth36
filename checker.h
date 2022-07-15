@@ -4,6 +4,7 @@
 #define SOC_MAX 80
 #define TEMP_MIN 0
 #define TEMP_MAX 45
+#define CHARGE_RATE_MIN 0.0
 #define CHARGE_RATE_MAX 0.8
 #define ENG_LANGUAGE English
 #define GERM_LANGUAGE Englisch
