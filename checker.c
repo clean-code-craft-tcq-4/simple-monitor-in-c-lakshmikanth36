@@ -3,13 +3,25 @@
 void readchargeRate(float chargeRate)
 {
     if(chargeRate > CHARGE_RATE_MAX)
+    {
+    #ifdef ENG_LANGUAGE    
         printf("Charge Rate out of range!\n");
+    #endif
+    #ifdef GERM_LANGUAGE 
+         printf("Laderate außerhalb des zulässigen Bereichs!\n");
+    }
 }
 
 void readtemperatureorsoc(float temperatureorsoc,int min_val,int max_val)
 {
     if((temperatureorsoc < min_val) || (temperatureorsoc > max_val))
+    {
+    #ifdef ENG_LANGUAGE     
         printf("Temperature/State of Charge out of range!\n");
+    #endif
+    #ifdef GERM_LANGUAGE
+        printf("Temperatur/Ladezustand außerhalb des Bereichs!\n");
+    }
  }
 
 float ConvertToCelcius(float farenheit)
@@ -18,29 +30,33 @@ float ConvertToCelcius(float farenheit)
 }
 
 int batteryIsOk(float temperature, float soc,float chargeRate) {
-#ifdef ENG_LANGUAGE
     conversion_temperature = ConvertToCelcius(temperature);
     readtemperatureorsoc(conversion_temperature,TEMP_MIN,TEMP_MAX);
     readtemperatureorsoc(soc,SOC_MIN,SOC_MAX);
     warningalert_SOC(soc);
     readchargeRate(chargeRate);
-#endif    
- #ifdef GERM_LANGUAGE
-    conversion_temperature = ConvertToCelcius(temperature);
-    readtemperatureorsoc(conversion_temperature,TEMP_MIN,TEMP_MAX);
-    readtemperatureorsoc(soc,SOC_MIN,SOC_MAX);
-    warningalert_SOC(soc);
-    readchargeRate(chargeRate);
-#endif    
 return 0;
 }
 
 void warningalert_SOC(int temperatureorsoc)
 {
-    if(temperatureorsoc <=SOC_MIN+4)
-        printf("Warning: Approaching discharge \n");
+    if(temperatureorsoc <=SOC_MIN+4) {
+     #ifdef ENG_LANGUAGE     
+        printf("Approaching discharge \n");
+     #endif 
+     #ifdef GERM_LANGUAGE   
+        printf("Entladung nähert sich \n");
+     #endif   
+    }
     else if(temperatureorsoc >= SOC_MAX-4)
-        printf("Warning: Approaching charge-peak \n");
+    {
+    #ifdef ENG_LANGUAGE    
+        printf("Approaching charge-peak \n");
+    #endif
+     #ifdef GERM_LANGUAGE  
+         printf("Annäherung an die Ladungsspitze \n");
+     #endif   
+    }
 }
 
 int main() {
